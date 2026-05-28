@@ -12,8 +12,8 @@ namespace waybar::modules::hyprland {
 Language::Language(const std::string& id, const Bar& bar, const Json::Value& config)
     : ALabel(config, "language", id, "{}", 0, true), bar_(bar), m_ipc(IPC::inst()) {
         if (config_.isMember("tooltip-format")) {
-    tooltip_format_ = config_["tooltip-format"].asString();
-        }
+         tooltip_format_ = config_["tooltip-format"].asString();
+       }
   // get the active layout when open
   initLanguage();
 
@@ -58,7 +58,7 @@ auto Language::update() -> void {
     label_.show();
     label_.set_markup(layoutName);
         if (tooltipEnabled()) {
-      if (!tooltip_format_.empty()) {
+          if (!tooltip_format_.empty()) {
         auto tooltipLayoutName = trim(fmt::format(
             fmt::runtime(tooltip_format_), fmt::arg("long", layout_.full_name),
             fmt::arg("short", layout_.short_name),
@@ -68,7 +68,7 @@ auto Language::update() -> void {
       } else {
         label_.set_tooltip_markup(layoutName);
       }
-        }
+    }
   } else {
     label_.hide();
   }
